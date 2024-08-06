@@ -1,35 +1,44 @@
 from turtle import Turtle, Screen
-import random
 
 win = Screen()
 sam = Turtle()
 win.bgcolor('black')
-sam.penup()
-sam.goto(x=200 , y=200)
-sam.pendown()
-
-
+win.setup(width=1000 , height= 1000)
+sam.shape('turtle')
 sam.speed('fastest')
-def draw ():
-    for _ in range(20):
+sam.color('red')
+sam.fillcolor('yellow')
+
+def draw_circles():
+    sam.penup()
+    sam.goto(-300,-300)
+    sam.pendown()
+    for _ in range(10):
         sam.circle(50)
-        sam.color('white')
-        sam.left(360 / 20)
+        sam.left(360 / 10)
 
-def main():
-    for _ in range(20):
-        sam.color('white')
-        sam.forward(50)
-        sam.left(120)
-        sam.left(10)
-    
+def draw_squares():
+    sam.penup()
+    sam.goto(0,0)
+    sam.pendown()
+    for _ in range(10):
+        for _ in range(4):
+            sam.forward(90)
+            sam.left(90)
+        sam.left(360 / 10)
 
+def draw_triangles():
+    sam.penup()
+    sam.goto(300,300)
+    sam.pendown()
+    for _ in range(10):
+        for _ in range(3):
+            sam.forward(100)
+            sam.left(120)
+        sam.left(360 / 10)
 
-main()
-
-
-
-
-
+draw_circles()
+draw_squares()
+draw_triangles()
 
 win.exitonclick()
